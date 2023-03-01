@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A9D0C8B-0EBF-4A2B-9D50-522805312F93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NeuralNetworks</RootNamespace>
+    <AssemblyName>NeuralNetworks</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathParser.org-mXparser, Version=5.2.1.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathParser.org-mXparser.5.2.1\lib\net461\MathParser.org-mXparser.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AntAlgorithm\Algorithm\Ant.cs" />
+    <Compile Include="AntAlgorithm\Algorithm\AntAlgorithmLogic.cs" />
+    <Compile Include="AntAlgorithm\UI\AntAlgorithmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AntAlgorithm\UI\AntAlgorithmForm.Designer.cs">
+      <DependentUpon>AntAlgorithmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AntAlgorithm\UI\MatrixCell.cs" />
+    <Compile Include="BeeAlgorithm\Algorithm\BeeAlgorithmLogic.cs" />
+    <Compile Include="BeeAlgorithm\UI\BeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeeAlgorithm\UI\BeeForm.Designer.cs">
+      <DependentUpon>BeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Utils\Converter.cs" />
+    <Compile Include="Common\Utils\MathParser.cs" />
+    <Compile Include="Common\Utils\Matrix.cs" />
+    <Compile Include="Common\Utils\Parser.cs" />
+    <Compile Include="GeneticAlgorithm\Contracts\BreedingType.cs" />
+    <Compile Include="GeneticAlgorithm\Contracts\ICrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Contracts\IMutation.cs" />
+    <Compile Include="GeneticAlgorithm\Contracts\ISelection.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Binary\PointCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Real\ArithmeticCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Real\FlatCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Real\GeometryCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Real\LinearCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Crossing\Real\SimplestCrossing.cs" />
+    <Compile Include="GeneticAlgorithm\Extensions\DoubleExtensions.cs" />
+    <Compile Include="GeneticAlgorithm\MainAlgorithm\Chromosome.cs" />
+    <Compile Include="GeneticAlgorithm\MainAlgorithm\GeneticAlgorythm.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\BaseSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\InbreedingSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\OutbreedingSelection.cs" />
+    <Compile Include="HamAlgorithm\Algorithm\HammingNn.cs" />
+    <Compile Include="HamAlgorithm\Algorithm\A.cs" />
+    <Compile Include="HamAlgorithm\Algorithm\Y.cs" />
+    <Compile Include="HamAlgorithm\Algorithm\Z.cs" />
+    <Compile Include="HamAlgorithm\UI\Hamming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HamAlgorithm\UI\Hamming.Designer.cs">
+      <DependentUpon>Hamming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HopAlgorithm\Algorithm\HopfieldNn.cs" />
+    <Compile Include="HopAlgorithm\UI\Draw.cs" />
+    <Compile Include="HopAlgorithm\UI\Hopfield.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopAlgorithm\UI\Hopfield.Designer.cs">
+      <DependentUpon>Hopfield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneticAlgorithm\Mutation\Binary\BinaryMutation.cs" />
+    <Compile Include="GeneticAlgorithm\Mutation\Real\RandomMutation.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\BreedingSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\PanmixiaSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\RankSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\SimpleSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Selection\TournamentSelection.cs" />
+    <Compile Include="GeneticAlgorithm\UI\GeneticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneticAlgorithm\UI\GeneticForm.Designer.cs">
+      <DependentUpon>GeneticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneticAlgorithm\UI\Presenter.cs" />
+    <Compile Include="GeneticAlgorithm\UI\TypeSettings.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimulatedAnnealing\Algorithm\AnnealingAlgorithm.cs" />
+    <Compile Include="SimulatedAnnealing\UI\AnnealingAlgorithmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulatedAnnealing\UI\AnnealingAlgorithmForm.Designer.cs">
+      <DependentUpon>AnnealingAlgorithmForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AntAlgorithm\UI\AntAlgorithmForm.resx">
+      <DependentUpon>AntAlgorithmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeeAlgorithm\UI\BeeForm.resx">
+      <DependentUpon>BeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneticAlgorithm\UI\GeneticForm.resx">
+      <DependentUpon>GeneticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HamAlgorithm\UI\Hamming.resx">
+      <DependentUpon>Hamming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopAlgorithm\UI\Hopfield.resx">
+      <DependentUpon>Hopfield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SimulatedAnnealing\UI\AnnealingAlgorithmForm.resx">
+      <DependentUpon>AnnealingAlgorithmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
